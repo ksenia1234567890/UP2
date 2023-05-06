@@ -17,6 +17,7 @@ namespace УП2
         {
             InitializeComponent();
         }
+        public int i=2021;
 
         // Кнопка "Сохранить"
         private void button1_Click(object sender, EventArgs e)
@@ -24,49 +25,70 @@ namespace УП2
 
             // Добавление данных
 
-            DataRow data = this.amusement_parkDataSet.Tables[1].NewRow();
-            int id = this.dataGridView1.RowCount + 1;
-            data[0] = id;
-            data[1] = textBox1.Text;
-            data[2] = textBox4.Text;
-            data[3] = textBox5.Text;
-            data[4] = textBox2.Text;
-            data[5] = textBox3.Text;
+            try
+            {
+                string path = "Host=localhost;Username=postgres;Password=cxNTVJas;Database=Amusement_park";
+                using (NpgsqlConnection contact = new NpgsqlConnection(path))
+                {
+                    contact.Open();
+                    NpgsqlCommand insert = new NpgsqlCommand();
+                    insert.Connection = contact;
+                    insert.CommandText = $"insert into attractions(attraction_code, title, description, limitations, safety, price, locus) values ('{i}','{title.Text}', '{description.Text}', '{limitations.Text}', '{safety.Text}', '{Convert.ToInt32(price.Text)}', '{locus.Text}')";
+                    insert.ExecuteNonQuery();
+                    int result = insert.ExecuteNonQuery();
+                    MessageBox.Show("Количество затронутых строк" + result.ToString());
+                    i++;
 
-            this.amusement_parkDataSet.Tables[1].Rows.Add(data);
-            this.attractionsTableAdapter.Update(this.amusement_parkDataSet.attractions);
-            this.amusement_parkDataSet.Tables[1].AcceptChanges();
-            this.dataGridView1.Refresh();
-            textBox1.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox3.Clear();
-            textBox2.Clear();
+                    contact.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
+        // При загрузке формы в датагридвью добавляются 7 столбцов
         private void Form1_Load(object sender, EventArgs e)
         {
-            string path = "Host=localhost;Username=postgres;Password=cxNTVJas;Database=Amusement_park";
-            NpgsqlConnection db_connect = new NpgsqlConnection(path);
-            db_connect.Open();
-            string query = "select * from attractions order by attraction_code";
-            NpgsqlCommand command = new NpgsqlCommand(query, db_connect);
-
-            // Заполнение датагридвью
+            dataGridView1.ColumnCount = 7;
 
             int i = 0;
-            NpgsqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+
+            // Заполнение данными из БД
+
+            try
             {
-                dataGridView1.Rows[i].Cells[0].Value = reader[0];
-                dataGridView1.Rows[i].Cells[1].Value = reader[1];
-                dataGridView1.Rows[i].Cells[2].Value = reader[2];
-                dataGridView1.Rows[i].Cells[3].Value = reader[3];
-                dataGridView1.Rows[i].Cells[4].Value = reader[4];
-                dataGridView1.Rows[i].Cells[5].Value = reader[5];
-                i++;
+                string path = "Host=localhost;Username=postgres;Password=cxNTVJas;Database=Amusement_park";
+                using (NpgsqlConnection contact = new NpgsqlConnection(path))
+                {
+                    contact.Open();
+                    string data = "select * from attractions order by attraction_code";
+                    NpgsqlCommand select = new NpgsqlCommand(data, contact);
+                    NpgsqlDataReader reader = select.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        dataGridView1.Rows[0].Cells[0].Value = reader.GetInt32(0).ToString();
+                        dataGridView1.Rows[0].Cells[1].Value = reader.GetString(1);
+                        dataGridView1.Rows[0].Cells[2].Value = reader.GetString(2);
+                        dataGridView1.Rows[0].Cells[3].Value = reader.GetString(3);
+                        dataGridView1.Rows[0].Cells[4].Value = reader.GetString(4);
+                        dataGridView1.Rows[0].Cells[5].Value = reader.GetInt32(5).ToString();
+                        dataGridView1.Rows[0].Cells[6].Value = reader.GetString(6);
+                    
+                    }
+                    reader.Close();
+                    contact.Open();
+                }
             }
-            db_connect.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            }
         }
     }
-}
+
+

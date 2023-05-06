@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.attractioncodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limitationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.safetyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attractionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.amusement_parkDataSet = new УП2.Amusement_parkDataSet();
             this.attractionsTableAdapter = new УП2.Amusement_parkDataSetTableAdapters.attractionsTableAdapter();
@@ -47,15 +40,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.limitations = new System.Windows.Forms.TextBox();
+            this.description = new System.Windows.Forms.TextBox();
+            this.locus = new System.Windows.Forms.TextBox();
+            this.price = new System.Windows.Forms.TextBox();
+            this.title = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.delete = new System.Windows.Forms.TextBox();
+            this.safety = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attractionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amusement_parkDataSet)).BeginInit();
@@ -65,63 +60,11 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.attractioncodeDataGridViewTextBoxColumn,
-            this.titleDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.limitationsDataGridViewTextBoxColumn,
-            this.safetyDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.locusDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.attractionsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(1, -2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(743, 760);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // attractioncodeDataGridViewTextBoxColumn
-            // 
-            this.attractioncodeDataGridViewTextBoxColumn.DataPropertyName = "attraction_code";
-            this.attractioncodeDataGridViewTextBoxColumn.HeaderText = "attraction_code";
-            this.attractioncodeDataGridViewTextBoxColumn.Name = "attractioncodeDataGridViewTextBoxColumn";
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // limitationsDataGridViewTextBoxColumn
-            // 
-            this.limitationsDataGridViewTextBoxColumn.DataPropertyName = "limitations";
-            this.limitationsDataGridViewTextBoxColumn.HeaderText = "limitations";
-            this.limitationsDataGridViewTextBoxColumn.Name = "limitationsDataGridViewTextBoxColumn";
-            // 
-            // safetyDataGridViewTextBoxColumn
-            // 
-            this.safetyDataGridViewTextBoxColumn.DataPropertyName = "safety";
-            this.safetyDataGridViewTextBoxColumn.HeaderText = "safety";
-            this.safetyDataGridViewTextBoxColumn.Name = "safetyDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // locusDataGridViewTextBoxColumn
-            // 
-            this.locusDataGridViewTextBoxColumn.DataPropertyName = "locus";
-            this.locusDataGridViewTextBoxColumn.HeaderText = "locus";
-            this.locusDataGridViewTextBoxColumn.Name = "locusDataGridViewTextBoxColumn";
             // 
             // attractionsBindingSource
             // 
@@ -142,27 +85,29 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.safety);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.limitations);
+            this.groupBox1.Controls.Add(this.description);
+            this.groupBox1.Controls.Add(this.locus);
+            this.groupBox1.Controls.Add(this.price);
+            this.groupBox1.Controls.Add(this.title);
             this.groupBox1.Location = new System.Drawing.Point(802, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(523, 352);
+            this.groupBox1.Size = new System.Drawing.Size(523, 463);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление аттракциона";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(442, 323);
+            this.button1.Location = new System.Drawing.Point(442, 434);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
@@ -173,7 +118,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(100, 308);
+            this.label5.Location = new System.Drawing.Point(100, 345);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 9;
@@ -182,7 +127,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 255);
+            this.label4.Location = new System.Drawing.Point(82, 399);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 8;
@@ -215,49 +160,49 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Название";
             // 
-            // textBox5
+            // limitations
             // 
-            this.textBox5.Location = new System.Drawing.Point(150, 177);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(312, 52);
-            this.textBox5.TabIndex = 4;
+            this.limitations.Location = new System.Drawing.Point(150, 177);
+            this.limitations.Multiline = true;
+            this.limitations.Name = "limitations";
+            this.limitations.Size = new System.Drawing.Size(312, 52);
+            this.limitations.TabIndex = 4;
             // 
-            // textBox4
+            // description
             // 
-            this.textBox4.Location = new System.Drawing.Point(150, 93);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(312, 52);
-            this.textBox4.TabIndex = 3;
+            this.description.Location = new System.Drawing.Point(150, 93);
+            this.description.Multiline = true;
+            this.description.Name = "description";
+            this.description.Size = new System.Drawing.Size(312, 52);
+            this.description.TabIndex = 3;
             // 
-            // textBox3
+            // locus
             // 
-            this.textBox3.Location = new System.Drawing.Point(150, 255);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(312, 20);
-            this.textBox3.TabIndex = 2;
+            this.locus.Location = new System.Drawing.Point(150, 399);
+            this.locus.Name = "locus";
+            this.locus.Size = new System.Drawing.Size(312, 20);
+            this.locus.TabIndex = 2;
             // 
-            // textBox2
+            // price
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 308);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.price.Location = new System.Drawing.Point(150, 345);
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(100, 20);
+            this.price.TabIndex = 1;
             // 
-            // textBox1
+            // title
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(312, 20);
-            this.textBox1.TabIndex = 0;
+            this.title.Location = new System.Drawing.Point(150, 43);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(312, 20);
+            this.title.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Location = new System.Drawing.Point(802, 439);
+            this.groupBox2.Controls.Add(this.delete);
+            this.groupBox2.Location = new System.Drawing.Point(802, 512);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(523, 145);
             this.groupBox2.TabIndex = 4;
@@ -282,12 +227,29 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Введите идентификатор аттракциона";
             // 
-            // textBox6
+            // delete
             // 
-            this.textBox6.Location = new System.Drawing.Point(150, 76);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(226, 20);
-            this.textBox6.TabIndex = 11;
+            this.delete.Location = new System.Drawing.Point(150, 76);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(226, 20);
+            this.delete.TabIndex = 11;
+            // 
+            // safety
+            // 
+            this.safety.Location = new System.Drawing.Point(150, 255);
+            this.safety.Multiline = true;
+            this.safety.Name = "safety";
+            this.safety.Size = new System.Drawing.Size(312, 52);
+            this.safety.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(60, 255);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Безопасность";
             // 
             // Form1
             // 
@@ -317,13 +279,6 @@
         public Amusement_parkDataSet amusement_parkDataSet;
         public System.Windows.Forms.BindingSource attractionsBindingSource;
         public Amusement_parkDataSetTableAdapters.attractionsTableAdapter attractionsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn attractioncodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn limitationsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn safetyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locusDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
@@ -331,15 +286,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox limitations;
+        private System.Windows.Forms.TextBox description;
+        private System.Windows.Forms.TextBox locus;
+        private System.Windows.Forms.TextBox price;
+        private System.Windows.Forms.TextBox title;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox delete;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox safety;
     }
 }
 
