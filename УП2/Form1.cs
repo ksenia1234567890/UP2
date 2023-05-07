@@ -31,12 +31,29 @@ namespace УП2
                 using (NpgsqlConnection contact = new NpgsqlConnection(path))
                 {
                     contact.Open();
-                    NpgsqlCommand insert = new NpgsqlCommand();
-                    insert.Connection = contact;
-                    insert.CommandText = $"insert into attractions(attraction_code, title, description, limitations, safety, price, locus) values ('{i}','{title.Text}', '{description.Text}', '{limitations.Text}', '{safety.Text}', '{Convert.ToInt32(price.Text)}', '{locus.Text}')";
-                    insert.ExecuteNonQuery();
-                    int result = insert.ExecuteNonQuery();
-                    MessageBox.Show("Количество затронутых строк" + result.ToString());
+                    var sql = "select attractions_i" +
+                        "" +
+                        "(@attraction_code," +
+                        "@title," +
+                        "@description," +
+                        "@limitations," +
+                        "@safety," +
+                        "@price," +
+                        "@locus)";
+                    using(var cmd = new NpgsqlCommand(sql,contact))
+                    {
+                        cmd.Parameters.Add("@attraction_code",NpgsqlTypes.NpgsqlDbType.Numeric).Value = i;
+                        cmd.Parameters.Add("@title", NpgsqlTypes.NpgsqlDbType.Varchar).Value= title.Text;
+                        cmd.Parameters.Add("@description", NpgsqlTypes.NpgsqlDbType.Varchar).Value = description.Text;
+                        cmd.Parameters.Add("@limitations", NpgsqlTypes.NpgsqlDbType.Varchar).Value = limitations.Text;
+                        cmd.Parameters.Add("@safety", NpgsqlTypes.NpgsqlDbType.Varchar).Value = safety.Text;
+                        cmd.Parameters.Add("@price", NpgsqlTypes.NpgsqlDbType.Numeric).Value = int.Parse(price.Text);
+                        cmd.Parameters.Add("@locus", NpgsqlTypes.NpgsqlDbType.Varchar).Value = locus.Text;
+
+                        cmd.ExecuteNonQuery();
+                        int result = cmd.ExecuteNonQuery();
+                        MessageBox.Show("Количество затронутых строк" + result.ToString());
+                    }
                     i++;
 
                     contact.Close();
@@ -51,10 +68,11 @@ namespace УП2
 
         // При загрузке формы в датагридвью добавляются 7 столбцов
         private void Form1_Load(object sender, EventArgs e)
-        {
-            dataGridView1.ColumnCount = 7;
+        {      
+            db.ColumnCount = 7;
+            db.RowCount = 21;
 
-            int i = 0;
+            int index = 0;
 
             // Заполнение данными из БД
 
@@ -70,14 +88,15 @@ namespace УП2
 
                     while (reader.Read())
                     {
-                        dataGridView1.Rows[0].Cells[0].Value = reader.GetInt32(0).ToString();
-                        dataGridView1.Rows[0].Cells[1].Value = reader.GetString(1);
-                        dataGridView1.Rows[0].Cells[2].Value = reader.GetString(2);
-                        dataGridView1.Rows[0].Cells[3].Value = reader.GetString(3);
-                        dataGridView1.Rows[0].Cells[4].Value = reader.GetString(4);
-                        dataGridView1.Rows[0].Cells[5].Value = reader.GetInt32(5).ToString();
-                        dataGridView1.Rows[0].Cells[6].Value = reader.GetString(6);
-                    
+                        db.Rows[index].Cells[0].Value = reader.GetInt32(0).ToString();
+                        db.Rows[index].Cells[1].Value = reader.GetString(1);
+                        db.Rows[index].Cells[2].Value = reader.GetString(2);
+                        db.Rows[index].Cells[3].Value = reader.GetString(3);
+                        db.Rows[index].Cells[4].Value = reader.GetString(4);
+                        db.Rows[index].Cells[5].Value = reader.GetInt32(5).ToString();
+                        db.Rows[index].Cells[6].Value = reader.GetString(6);
+                        index++;
+
                     }
                     reader.Close();
                     contact.Open();

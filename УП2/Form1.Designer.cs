@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.db = new System.Windows.Forms.DataGridView();
             this.attractionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.amusement_parkDataSet = new УП2.Amusement_parkDataSet();
             this.attractionsTableAdapter = new УП2.Amusement_parkDataSetTableAdapters.attractionsTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.safety = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,22 +51,20 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.TextBox();
-            this.safety = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attractionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amusement_parkDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // db
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, -2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 760);
-            this.dataGridView1.TabIndex = 0;
+            this.db.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.db.Location = new System.Drawing.Point(1, -2);
+            this.db.Name = "db";
+            this.db.Size = new System.Drawing.Size(743, 760);
+            this.db.TabIndex = 0;
             // 
             // attractionsBindingSource
             // 
@@ -104,6 +104,23 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление аттракциона";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(60, 255);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Безопасность";
+            // 
+            // safety
+            // 
+            this.safety.Location = new System.Drawing.Point(150, 255);
+            this.safety.Multiline = true;
+            this.safety.Name = "safety";
+            this.safety.Size = new System.Drawing.Size(312, 52);
+            this.safety.TabIndex = 11;
             // 
             // button1
             // 
@@ -234,23 +251,6 @@
             this.delete.Size = new System.Drawing.Size(226, 20);
             this.delete.TabIndex = 11;
             // 
-            // safety
-            // 
-            this.safety.Location = new System.Drawing.Point(150, 255);
-            this.safety.Multiline = true;
-            this.safety.Name = "safety";
-            this.safety.Size = new System.Drawing.Size(312, 52);
-            this.safety.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(60, 255);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Безопасность";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,11 +258,11 @@
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.db);
             this.Name = "Form1";
             this.Text = "Главная";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attractionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amusement_parkDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -275,7 +275,7 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView db;
         public Amusement_parkDataSet amusement_parkDataSet;
         public System.Windows.Forms.BindingSource attractionsBindingSource;
         public Amusement_parkDataSetTableAdapters.attractionsTableAdapter attractionsTableAdapter;
